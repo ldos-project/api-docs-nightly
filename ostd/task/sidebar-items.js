@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["disable_preempt","halt_cpu","inject_fpu_context_handler","inject_post_schedule_handler","inject_pre_schedule_handler","inject_spawn_thread","spawn_thread","try_with_current_fpu_context","with_current_fpu_context"],"mod":["atomic_mode","scheduler"],"struct":["CurrentTask","DisabledPreemptGuard","Task","TaskOptions"],"trait":["FpuContextAccess"]};

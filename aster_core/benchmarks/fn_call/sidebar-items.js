@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["bench_call_overhead","bench_dyn_call_overhead","register_benchmarks"],"struct":["DynFnCallOverheadBenchmark","FnCallOverheadBenchmark","MyStruct","MyStruct2"],"trait":["MyTrait"]};

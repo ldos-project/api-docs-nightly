@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BLOCK_SIZE","OQUEUE_MAGIC","OQUEUE_ROOT_INO"],"fn":["init"],"mod":["dir","metadata","produce","reader"],"struct":["Common","OQueueFs","OQueueFsType"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DEFAULT_BATCH_SIZE","DEFAULT_INFERENCE_TIMEOUT_MS"],"struct":["Heimdall"]};

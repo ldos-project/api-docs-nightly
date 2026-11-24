@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["UNREACHABLE_SNAFU"],"enum":["Errno"],"struct":["Error","ErrorDefaultProjection","Snafu"]};

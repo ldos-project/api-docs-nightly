@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["MPMCOQUEUE_HEAD_SENTINEL"],"fn":["allocate_page_aligned_array"],"struct":["MPMCConsumer","MPMCOQueue","MPMCProducer","MPMCStrongObserver","MPMCWeakObserver","Slot"]};

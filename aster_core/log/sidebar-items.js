@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["check_prefix_level","init"],"static":["PREFIX_LOGLEVEL"],"struct":["PrefixLevelFilter"]};

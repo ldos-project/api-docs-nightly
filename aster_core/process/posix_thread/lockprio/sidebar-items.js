@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["apply","forget_thread","inheritable_policy","init","is_enabled","record"],"mod":["decisions","policy"],"static":["POLICY","POLICY_NAME","STATE"],"struct":["FutexRecord","OwnerRecord","State"]};

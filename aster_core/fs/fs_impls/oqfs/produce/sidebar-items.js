@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["FILE_NAME","MAX_PENDING_BYTES"],"fn":["new_inode"],"struct":["ProduceFile","ProduceInode"]};

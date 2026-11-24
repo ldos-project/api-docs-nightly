@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["EnqueueFlags","SchedulingEventKind","UpdateFlags"],"fn":["enable_preemption_on_cpu","idle_time","inject_scheduler","set_need_preempt"],"mod":["info"],"struct":["SchedulingEvent"],"trait":["LocalRunQueue","Scheduler"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["pmu_read_dtlb","pmu_reset","pmu_start"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["VmQueriedItem"],"struct":["Cursor","CursorMut","VmMappingRequest","VmSpace"],"trait":["VmMappingPolicy"]};

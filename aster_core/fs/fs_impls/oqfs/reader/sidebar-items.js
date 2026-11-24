@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["CONSUME_FILE_NAME","MAX_BUFFER_BYTES","STRONG_OBSERVE_FILE_NAME"],"enum":["ReaderKind"],"fn":["new_inode"],"struct":["BufferState","ReaderFile","ReaderInode"]};

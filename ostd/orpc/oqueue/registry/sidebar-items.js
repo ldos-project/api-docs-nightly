@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["clean_exports","clean_registry","list_export_paths","lookup_by_path","lookup_by_path_pattern","lookup_by_type","lookup_export","register","register_no_export","register_producible","register_with","register_with_projection"]};

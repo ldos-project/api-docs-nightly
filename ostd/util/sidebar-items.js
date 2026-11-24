@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Either"],"mod":["callback_counter","id_set","ignore_error","untyped_box"]};

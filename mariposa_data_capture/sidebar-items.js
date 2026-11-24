@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["DataCaptureError"],"struct":["DataCaptureDevice","DataCaptureFile","DataCaptureFileBuilder","FileDescriptor","ObserverRegistration"]};

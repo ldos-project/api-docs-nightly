@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["leaf_file_names","live_export_paths","path_to_segments"],"struct":["DirInode"]};

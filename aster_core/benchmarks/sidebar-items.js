@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["is_benchmark_enabled"],"mod":["fn_call","legacy_oqueue","oqueue","oqueue_roundtrip"],"static":["BENCH_NAME","BENCH_N_REPEAT","BENCH_N_THREADS","BENCH_Q_TYPE"],"struct":["BenchmarkHarness"],"trait":["Benchmark"]};

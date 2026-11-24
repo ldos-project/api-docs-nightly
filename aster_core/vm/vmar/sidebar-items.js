@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["VMAR_CAP_ADDR","VMAR_LOWEST_ADDR"],"fn":["init_in_first_kthread","is_userspace_vaddr","is_userspace_vaddr_range"],"mod":["handle","huge_pages","interval_set","oqueues","rmap","util","vm_mapping","vmar_impls"],"struct":["FileMmapRequest","MapHandle","PageFaultMessage","PageFaultMessageDescriptor"]};

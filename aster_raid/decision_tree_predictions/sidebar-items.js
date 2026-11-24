@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["predict_device0","predict_device1","predict_device2"]};

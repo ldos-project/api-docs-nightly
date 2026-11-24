@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["enable_kernel_fpu"],"struct":["InKernelFpuGuard"]};

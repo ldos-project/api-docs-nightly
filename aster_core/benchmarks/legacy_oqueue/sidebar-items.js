@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["OQueueAttachError"],"mod":["locking","ringbuffer"],"struct":["AllocationFailedSnafu","Cursor","UnsupportedSnafu"],"trait":["Consumer","OQueue","Producer","StrongObserver","WeakObserver"]};

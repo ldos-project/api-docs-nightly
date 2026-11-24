@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Creates call and return OQueues for marked methods in a trait or impl."><title>trace_methods in ostd::orpc - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-ddecd707.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="ostd" data-themes="" data-resource-suffix="" data-rustdoc-version="1.99.0-nightly (87e5904f5 2026-07-20)" data-channel="nightly" data-search-js="search-cf4fc35e.js" data-stringdex-js="stringdex-b5109af9.js" data-settings-js="settings-170eb4bf.js" ><script src="../../static.files/storage-41dd4d93.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-417ebf0a.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"></head><body class="rustdoc attr"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">trace_methods</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../ostd/index.html">ostd</a><span class="version">0.19.0</span></h2></div><div class="sidebar-elems"><div id="rustdoc-modnav"><h2><a href="index.html">In ostd::<wbr>orpc</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">ostd</a>::<wbr><a href="index.html">orpc</a></div><h1>Attribute Macro <span class="attr">trace_<wbr>methods</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"></span></div><pre class="rust item-decl"><code>#[trace_methods]</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Creates call and return OQueues for marked methods in a trait or impl.</p>
+
+<div class="example-wrap ignore"><a href="#" class="tooltip" title="This example is not tested">ⓘ</a><pre class="rust rust-example-rendered"><code><span class="attr">#[trace_methods(visibility = <span class="kw">pub</span>(<span class="kw">crate</span>))]
+</span><span class="kw">trait </span>Socket {
+    <span class="attr">#[trace]
+    </span><span class="kw">fn </span>connect(<span class="kw-2">&amp;</span><span class="self">self</span>, address: SocketAddr) -&gt; <span class="prelude-ty">Result</span>&lt;()&gt;;
+}
+
+<span class="attr">#[trace_methods(trait_module = <span class="kw">crate</span>::net)]
+</span><span class="kw">impl </span>Socket <span class="kw">for </span>TcpSocket {
+    <span class="attr">#[trace]
+    </span><span class="kw">fn </span>connect(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="attr">#[trace(only = call)] </span>address: SocketAddr) -&gt; <span class="prelude-ty">Result</span>&lt;()&gt; { <span class="comment">/* ... */ </span>}
+}</code></pre></div>
+<p>OQueues are named using: the crate, the module path, the type or trait name, the method, and
+finally either <code>call</code> or <code>return</code>. For example, if the above declarations are in <code>net::socket</code>
+in the <code>aster_core</code> crate (<code>kernel/core</code>), then the <code>connect</code> call OQueue will be
+<code>aster_core.net.socket.Socket.connect.call</code>. For trait methods, the OQueues are named after the
+<em>trait</em>, not the type implementing it (so all <code>impl</code>s share the same OQueues). For inherent
+methods, their OQueues are named after the type.</p>
+<p>The event types are in a <code>snake_case</code> module named after the trait or implementing type. They
+are named in <code>CamelCase</code> based on the method name followed by <code>Call</code> or <code>Return</code>. For example,
+the type are <code>net::socket::socket::ConnectCall</code> and <code>net::socket::socket::ConnectReturn</code> for
+<code>connect</code>.</p>
+<p>Fields are named based on argument names (from the <code>trait</code> declaration or the <code>impl</code> for
+inherent methods). The names are the argument names without leading underscores (to make names
+independent of if an argument is used), and <code>return_value</code> for the return value. Any field names
+which conflict with Rust keywords have <code>_</code> appended (e.g., <code>self_</code>). For methods declared in a
+trait, <code>self</code> has type <code>&amp;dyn Trait</code>. For inherent methods, <code>self</code> has type <code>&amp;Type</code></p>
+<p>Use <code>trait_module = ...</code> on a trait <code>impl</code> to give the path to the module containing the trait
+when the trait path is unqualified.</p>
+<p>Use <code>visibility = ...</code> to specify the visibility of the event types.</p>
+<p>Arguments may be left out of either event with <code>#[trace(only = call)]</code> or
+<code>#[trace(only = return)]</code>. An empty <code>#[trace(only = ())]</code> omits an argument from both events.
+Arguments and the return value can be given <code>#[projection(...)]</code> attributes which are passed
+though to the underlying derived <code>DefaultProjection</code>. The macro automatically adds <code>deref</code> along
+with other projection options, because the the generated event structure contains <em>reference</em> to
+the argument type. The <code>self</code> argument is automatically projected as an opaque ID.</p>
+</div></details></section></div></main></body></html>
